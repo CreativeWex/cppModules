@@ -12,6 +12,11 @@ Contact::Contact() //TODO: валидация
     std::getline(std::cin, _darkestSecret);
 }
 
+// Contact::~Contact()
+// {
+
+// }
+
 void Contact::Display()
 {
     std::cout << YEL "\nПоля объекта: " RESET << std::endl;

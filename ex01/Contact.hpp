@@ -12,10 +12,10 @@ class Contact
                     _darkestSecret;
 
 
-
-
     public:
         Contact();
+        // ~Contact();
+
         void Display();
 
         std::string GetName();
