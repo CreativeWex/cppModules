@@ -17,7 +17,8 @@ int main()
         }
         else if (input == "SEARCH")
         {
-            return (0);
+            listContacts.DisplayHeader();
+            listContacts.DisplayCurrentContacts();
         }
         else if (input == "EXIT")
         {
@@ -26,6 +27,4 @@ int main()
         }
     }
     return (0);
-
-
 }

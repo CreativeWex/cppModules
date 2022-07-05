@@ -1,21 +1,23 @@
 #include "Contact.hpp"
 
-Contact::Contact() //TODO: валидация
+// Contact::Contact() //TODO: валидация
+// {
+//     std::cout << "Имя: ";
+//     std::getline(std::cin, _name);
+//     std::cout << "Фамилия: ";
+//     std::getline(std::cin, _surname);
+//     std::cout << "Псевдоним: ";
+//     std::getline(std::cin, _nickname);
+//     std::cout << "Описание: ";
+//     std::getline(std::cin, _darkestSecret);
+// }
+
+Contact::Contact()
 {
-    std::cout << "Имя: ";
-    std::getline(std::cin, _name);
-    std::cout << "Фамилия: ";
-    std::getline(std::cin, _surname);
-    std::cout << "Псевдоним: ";
-    std::getline(std::cin, _nickname);
-    std::cout << "Описание: ";
-    std::getline(std::cin, _darkestSecret);
+    this->_flagNotNull = false;
 }
 
-// Contact::~Contact()
-// {
-
-// }
+Contact::~Contact(){}
 
 void Contact::Display()
 {
@@ -23,7 +25,7 @@ void Contact::Display()
     std::cout << "Имя: " << _name << std::endl;
     std::cout << "Фамилия: " << _surname << std::endl;
     std::cout << "Псевдоним: " << _nickname << std::endl;
-    std::cout << "Описание: " << _darkestSecret << std::endl;
+    std::cout << "Самый страшный секрет: " << _darkestSecret << std::endl;
 }
 
 std::string Contact::GetName()
@@ -42,8 +44,10 @@ std::string Contact::GetDarkestSecret()
 {
     return _darkestSecret;
 }
-
-
+bool Contact::GetFlagNotNull()
+{
+    return _flagNotNull;
+}
 
 void Contact::SetName(std::string valueName)
 {
@@ -60,4 +64,8 @@ void Contact::SetNickname(std::string valueNickname)
 void Contact::SetDarkestSecret(std::string valueDarkestSecret)
 {
     _darkestSecret = valueDarkestSecret;
+}
+void Contact::SetFlagNotNuLL()
+{
+    _flagNotNull = true;
 }

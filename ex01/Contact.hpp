@@ -9,12 +9,14 @@ class Contact
         std::string _name,
                     _surname,
                     _nickname,
-                    _darkestSecret;
+                    _darkestSecret,
+                    _favoriteMeal;
+        bool _flagNotNull;
 
 
     public:
         Contact();
-        // ~Contact();
+        ~Contact();
 
         void Display();
 
@@ -22,11 +24,13 @@ class Contact
         std::string GetSurname();
         std::string GetNickname();
         std::string GetDarkestSecret();
+        bool GetFlagNotNull();
 
         void SetName(std::string valueName);
         void SetSurname(std::string valueSurname);
         void SetNickname(std::string valueNickname);
         void SetDarkestSecret(std::string valueDarkestSecret);
+        void SetFlagNotNuLL();
 
 
 };

@@ -19,7 +19,7 @@ $(NAME):		$(OBJS)
 				@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 				@echo "$(TURQUOISE)\n[ Completed $(NAME) ]\n$(END)"
 
-clean:
+clean:   
 				@$(RM) $(OBJS)
 				@echo "$(BLUE)\nCleaning done\n$(END)"
 
