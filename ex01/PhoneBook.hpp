@@ -3,6 +3,7 @@
 class PhoneBook
 {
     public:
+    // TODO: перегрузить оператор равно
         PhoneBook();
         ~PhoneBook();
 

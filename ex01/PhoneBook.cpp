@@ -47,9 +47,22 @@ void PhoneBook::DisplayHeader()
 void PhoneBook::DisplayCurrentContacts()
 {
     int i = 0;
-    while(this->_contacts[i].GetFlagNotNull())
+    while(this->_contacts[i].GetFlagNotNull() && i < 8)
     {
-        std::cout << "Запись присутствует по номеру " << i << std::endl;
+        std::cout << "|" << std::setw(10) << std::left << i;
+        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].GetName();
+        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].GetSurname();
+        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].GetNickname() << "|\n";
+
+
+        // std::cout << std::right << std::setw(10) << this->_contacts[i].GetName();
+        // std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].GetSurname() << "|";
+        // std::cout << std::setw(10) << std::right << this->_contacts[i].GetNickname() << "\n";
+
+
+        // this->_contacts[i].GetName() << std::right << 
+        // "|" << std::setw(10) << std::right << "|" << this->_contacts[i].GetSurname() << "|" <<
+        // std::setw(10) << std::right << "|" << this->_contacts[i].GetNickname() << "|" << std::endl;
         i++;
     }
 }
