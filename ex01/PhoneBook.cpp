@@ -5,74 +5,95 @@ PhoneBook::PhoneBook()
     this->amount = 0; 
 }
 
-PhoneBook::~PhoneBook(){}
+PhoneBook::~PhoneBook()
+{
 
-void PhoneBook::AddNewContact()
+}
+
+/*===================[METHODS]===================*/
+void PhoneBook::addNewContact()
 {
     std::string tmp;
     if (this->amount == 8)
     {
-        std::cout << BLU "\nСправочник заполнен" RESET << std::endl;
+        std::cout << BLU "\nPhoneBook IS FULL" RESET << std::endl;
         this->amount = 0;
     }
-    std::cout << YEL "Добавление пользователя на страницу " RESET << this->amount << std::endl;
+    std::cout << YEL "Creating new contact on page " RESET << this->amount << std::endl;
     this->_contacts[this->amount] = Contact();
-    std::cout << "Имя: ";
+    std::cout << "Name: ";
     std::getline(std::cin, tmp);
-    this->_contacts[this->amount].SetName(tmp);
-    std::cout << "Фамилия: ";
+    this->_contacts[this->amount].setName(tmp);
+    std::cout << "Surname: ";
     std::getline(std::cin, tmp);
-    this->_contacts[this->amount].SetSurname(tmp);
-    std::cout << "Псевдоним: ";
+    this->_contacts[this->amount].setSurname(tmp);
+    std::cout << "Nickname: ";
     std::getline(std::cin, tmp);
-    this->_contacts[this->amount].SetNickname(tmp);
-    std::cout << "Самый страшный секрет: ";
+    this->_contacts[this->amount].setNickname(tmp);
+    std::cout << "The darkest secret: ";
     std::getline(std::cin, tmp);
-    this->_contacts[this->amount].SetDarkestSecret(tmp);
-    this->_contacts[this->amount].SetFlagNotNuLL();
-
+    this->_contacts[this->amount].setDarkestSecret(tmp);
+    this->_contacts[this->amount].setFlagNotNuLL();
     this->amount++;
+    std::cout << YEL "Contact added" RESET << std::endl;
+    std::cout << YEL "Enter commant (ADD, SEARCH, EXIT) "RESET <<std::endl;
 
-
-    std::cout << YEL "Контакт добавлен" RESET << std::endl;
 }
 
-void PhoneBook::DisplayHeader()
+void PhoneBook::displayHeader()
 {
-    std::cout << std::setw(10) << std::right << "|----------|----------|----------|----------|" << std::endl;
-    std::cout << std::setw(10) << std::right << "|   Index  |   Name   |  Surname | Nickname |" << std::endl;
-    std::cout << std::setw(10) << std::right << "|----------|----------|----------|----------|" << std::endl;
+    std::cout << std::setw(10) << std::right << "|----------|----------|----------|----------|\n";
+    std::cout << std::setw(10) << std::right << "|  Index   |   Name   |  Surname | Nickname |\n";
+    std::cout << std::setw(10) << std::right << "|----------|----------|----------|----------|\n";
 }
 
-void PhoneBook::DisplayCurrentContacts()
+void PhoneBook::displayCurrentContacts()
 {
     int i = 0;
-    while(this->_contacts[i].GetFlagNotNull() && i < 8)
+    std::string tmp;
+
+    while(this->_contacts[i].getFlagNotNull() && i < 8)
     {
         std::cout << "|" << std::setw(10) << std::left << i;
-        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].GetName();
-        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].GetSurname();
-        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].GetNickname() << "|\n";
-
-
-        // std::cout << std::right << std::setw(10) << this->_contacts[i].GetName();
-        // std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].GetSurname() << "|";
-        // std::cout << std::setw(10) << std::right << this->_contacts[i].GetNickname() << "\n";
-
-
-        // this->_contacts[i].GetName() << std::right << 
-        // "|" << std::setw(10) << std::right << "|" << this->_contacts[i].GetSurname() << "|" <<
-        // std::setw(10) << std::right << "|" << this->_contacts[i].GetNickname() << "|" << std::endl;
+        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].getName();
+        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].getSurname();
+        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].getNickname() << "|\n";
         i++;
     }
+    std::cout << "Enter " YEL "index " RESET "to display more information or type" YEL " [BACK] " RESET "to cancel\n";
+    while (1)
+    {
+        std::cout << BLU "_>" RESET;
+        std::getline(std::cin, tmp);
+        if (tmp == "BACK")
+        {
+            std::cout << YEL "Enter commant (ADD, SEARCH, EXIT) "RESET <<std::endl;
+            break;
+        }
+        else
+        {
+            // try
+            // {
+            //     int res = std::stoi(tmp);
+
+            // }
+            // catch
+            // {
+            //     cout << YEL "Wrong arg\n" RESET;
+            // }
+        }
+    }
+
 }
 
-Contact PhoneBook::GetContactsArray(int index)
+/*===================[GETTERS]===================*/
+Contact PhoneBook::getContactsArray(int index)
 {
     return _contacts[index];
 }
 
-void PhoneBook::SetContactsArray(int index, Contact valueContact)
+/*===================[SETTERS]===================*/
+void PhoneBook::setContactsArray(int index, Contact valueContact)
 {
     _contacts[index] = valueContact;
 }

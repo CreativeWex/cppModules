@@ -1,25 +1,17 @@
 #include "Contact.hpp"
 
-// Contact::Contact() //TODO: валидация
-// {
-//     std::cout << "Имя: ";
-//     std::getline(std::cin, _name);
-//     std::cout << "Фамилия: ";
-//     std::getline(std::cin, _surname);
-//     std::cout << "Псевдоним: ";
-//     std::getline(std::cin, _nickname);
-//     std::cout << "Описание: ";
-//     std::getline(std::cin, _darkestSecret);
-// }
-
 Contact::Contact()
 {
     this->_flagNotNull = false;
 }
 
-Contact::~Contact(){}
+Contact::~Contact()
+{
 
-void Contact::Display()
+}
+
+/*===================[METHODS]===================*/
+void Contact::display()
 {
     std::cout << YEL "\nПоля объекта: " RESET << std::endl;
     std::cout << "Имя: " << _name << std::endl;
@@ -28,44 +20,54 @@ void Contact::Display()
     std::cout << "Самый страшный секрет: " << _darkestSecret << std::endl;
 }
 
-std::string Contact::GetName()
+/*===================[GETTERS]===================*/
+std::string Contact::getName()
 {
     return _name;
 }
-std::string Contact::GetSurname()
+
+std::string Contact::getSurname()
 {
     return _surname;
 }
-std::string Contact::GetNickname()
+
+std::string Contact::getNickname()
 {
     return _nickname;
 }
-std::string Contact::GetDarkestSecret()
+
+std::string Contact::getDarkestSecret()
 {
     return _darkestSecret;
 }
-bool Contact::GetFlagNotNull()
+
+bool Contact::getFlagNotNull()
 {
     return _flagNotNull;
 }
 
-void Contact::SetName(std::string valueName)
+/*===================[SETTERS]===================*/
+void Contact::setName(std::string valueName)
 {
     _name = valueName;
 }
-void Contact::SetSurname(std::string valueSurname)
+
+void Contact::setSurname(std::string valueSurname)
 {
     _surname = valueSurname;
 }
-void Contact::SetNickname(std::string valueNickname)
+
+void Contact::setNickname(std::string valueNickname)
 {
     _nickname = valueNickname;
 }
-void Contact::SetDarkestSecret(std::string valueDarkestSecret)
+
+void Contact::setDarkestSecret(std::string valueDarkestSecret)
 {
     _darkestSecret = valueDarkestSecret;
 }
-void Contact::SetFlagNotNuLL()
+
+void Contact::setFlagNotNuLL()
 {
     _flagNotNull = true;
 }

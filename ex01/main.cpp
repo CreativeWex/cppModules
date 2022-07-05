@@ -11,14 +11,14 @@ int main()
     {
         std::cout << YEL "_>" RESET;
         std::getline(std::cin, input);
-        if (input == "ADD")
+        if (input == "ADD") //TODO: валидация
         {
-            listContacts.AddNewContact();
+            listContacts.addNewContact();
         }
         else if (input == "SEARCH")
         {
-            listContacts.DisplayHeader();
-            listContacts.DisplayCurrentContacts();
+            listContacts.displayHeader();
+            listContacts.displayCurrentContacts();
         }
         else if (input == "EXIT")
         {
