@@ -19,5 +19,8 @@ class PhoneBook
     private:
         int amount;
         Contact _contacts[8];
+        /*===================[METHODS]===================*/
+        void printToFormat(std::string);
+
         
 };

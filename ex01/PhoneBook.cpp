@@ -47,6 +47,19 @@ void PhoneBook::displayHeader()
     std::cout << std::setw(10) << std::right << "|----------|----------|----------|----------|\n";
 }
 
+void PhoneBook::printToFormat(std::string s)
+{
+    if (s.size() > 10)
+    {
+        s = s.insert(9, ".");
+        s = s.substr(0, 10);
+    }
+    else
+        while (s.length() < 10)
+            s = s.insert(0, " ");
+    std::cout << "|" << std::setw(10) << std::right << s;
+}
+
 void PhoneBook::displayCurrentContacts()
 {
     int i = 0;
@@ -55,9 +68,10 @@ void PhoneBook::displayCurrentContacts()
     while(this->_contacts[i].getFlagNotNull() && i < 8)
     {
         std::cout << "|" << std::setw(10) << std::left << i;
-        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].getName();
-        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].getSurname();
-        std::cout << "|" << std::setw(10) << std::right << this->_contacts[i].getNickname() << "|\n";
+        this->printToFormat(this->_contacts[i].getName());
+        this->printToFormat(this->_contacts[i].getSurname());
+        this->printToFormat(this->_contacts[i].getNickname());
+        std::cout << "|\n";
         i++;
     }
     std::cout << "Enter " YEL "index " RESET "to display more information or type" YEL " [BACK] " RESET "to cancel\n";
@@ -67,23 +81,30 @@ void PhoneBook::displayCurrentContacts()
         std::getline(std::cin, tmp);
         if (tmp == "BACK")
         {
-            std::cout << YEL "Enter commant (ADD, SEARCH, EXIT) "RESET <<std::endl;
+            std::cout << YEL "Enter command (ADD, SEARCH, EXIT) "RESET <<std::endl;
             break;
         }
         else
         {
-            // try
-            // {
-            //     int res = std::stoi(tmp);
-
-            // }
-            // catch
-            // {
-            //     cout << YEL "Wrong arg\n" RESET;
-            // }
+            try
+            {
+                if (tmp.size() > 1)
+                {
+                    throw(tmp);
+                }
+                int res = std::stoi(tmp);
+                if (res > 7 || !(this->_contacts[res].getFlagNotNull()) || (isdigit(res)))
+                {
+                    throw (tmp);
+                }
+                this->_contacts[res].display(res);
+            }
+            catch(std::string str)
+            {
+                std::cerr << YEL "Wrong arg: " RESET << str << "\n";
+            }
         }
     }
-
 }
 
 /*===================[GETTERS]===================*/

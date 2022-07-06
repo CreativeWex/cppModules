@@ -11,13 +11,15 @@ Contact::~Contact()
 }
 
 /*===================[METHODS]===================*/
-void Contact::display()
+void Contact::display(int index)
 {
-    std::cout << YEL "\nПоля объекта: " RESET << std::endl;
-    std::cout << "Имя: " << _name << std::endl;
-    std::cout << "Фамилия: " << _surname << std::endl;
-    std::cout << "Псевдоним: " << _nickname << std::endl;
-    std::cout << "Самый страшный секрет: " << _darkestSecret << std::endl;
+    std::cout << "=========[" << YEL << index << RESET << "]=========\n";
+    std::cout << "Name: " << _name << "\n";
+    std::cout << "Surname: " << _surname << "\n";
+    std::cout << "Nickname: " << _nickname << "\n";
+    std::cout << "Darkest Secret: " << _darkestSecret << "\n";
+    std::cout << "Favorite meal: \n";
+    std::cout << "Other information: \n";
 }
 
 /*===================[GETTERS]===================*/

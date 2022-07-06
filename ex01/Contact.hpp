@@ -16,7 +16,7 @@ class Contact
         Contact();
         ~Contact();
         /*===================[METHODS]===================*/
-        void display();
+        void display(int index);
 
         /*===================[GETTERS]===================*/
         std::string getName();
