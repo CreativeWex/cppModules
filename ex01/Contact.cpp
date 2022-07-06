@@ -18,8 +18,9 @@ void Contact::display(int index)
     std::cout << "Surname: " << _surname << "\n";
     std::cout << "Nickname: " << _nickname << "\n";
     std::cout << "Darkest Secret: " << _darkestSecret << "\n";
-    std::cout << "Favorite meal: \n";
-    std::cout << "Other information: \n";
+    std::cout << "Favorite meal: " << _favoriteMeal << "\n";
+    std::cout << "Other information: " << _otherInfo << "\n";
+    std::cout << "=====================\n";
 }
 
 /*===================[GETTERS]===================*/
@@ -48,6 +49,16 @@ bool Contact::getFlagNotNull()
     return _flagNotNull;
 }
 
+std::string Contact::getFavoriteMeal()
+{
+    return _favoriteMeal;
+}
+
+std::string Contact::getOtherInfo()
+{
+    return _otherInfo;
+}
+
 /*===================[SETTERS]===================*/
 void Contact::setName(std::string valueName)
 {
@@ -72,4 +83,14 @@ void Contact::setDarkestSecret(std::string valueDarkestSecret)
 void Contact::setFlagNotNuLL()
 {
     _flagNotNull = true;
+}
+
+void Contact::setFavoriteMeal(std::string valueFavoriteMeal)
+{
+    _favoriteMeal = valueFavoriteMeal;
+}
+
+void Contact::setOtherInfo(std::string valueOtherInfo)
+{
+    _otherInfo = valueOtherInfo;
 }

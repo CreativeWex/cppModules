@@ -9,7 +9,9 @@ class Contact
         std::string _name;
         std::string _surname;
         std::string _nickname;
-        std::string _darkestSecret; //TODO: добавить поля
+        std::string _darkestSecret;
+        std::string _favoriteMeal;
+        std::string _otherInfo;
         bool _flagNotNull;
 
     public:
@@ -23,6 +25,8 @@ class Contact
         std::string getSurname();
         std::string getNickname();
         std::string getDarkestSecret();
+        std::string getFavoriteMeal();
+        std::string getOtherInfo();
         bool getFlagNotNull();
 
         /*===================[SETTERS]===================*/
@@ -30,6 +34,8 @@ class Contact
         void setSurname(std::string valueSurname);
         void setNickname(std::string valueNickname);
         void setDarkestSecret(std::string valueDarkestSecret);
+        void setFavoriteMeal(std::string valueFavoriteMeal);
+        void setOtherInfo(std::string valueOtherInfo);
         void setFlagNotNuLL();
 };
 

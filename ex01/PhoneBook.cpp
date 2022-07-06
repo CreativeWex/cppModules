@@ -11,6 +11,7 @@ PhoneBook::~PhoneBook()
 }
 
 /*===================[METHODS]===================*/
+
 void PhoneBook::addNewContact()
 {
     std::string tmp;
@@ -21,6 +22,7 @@ void PhoneBook::addNewContact()
     }
     std::cout << YEL "Creating new contact on page " RESET << this->amount << std::endl;
     this->_contacts[this->amount] = Contact();
+
     std::cout << "Name: ";
     std::getline(std::cin, tmp);
     this->_contacts[this->amount].setName(tmp);
@@ -33,11 +35,17 @@ void PhoneBook::addNewContact()
     std::cout << "The darkest secret: ";
     std::getline(std::cin, tmp);
     this->_contacts[this->amount].setDarkestSecret(tmp);
+    std::cout << "Favorite Meal: ";
+    std::getline(std::cin, tmp);
+    this->_contacts[this->amount].setFavoriteMeal(tmp);
+    std::cout << "Other Information: ";
+    std::getline(std::cin, tmp);
+    this->_contacts[this->amount].setOtherInfo(tmp);
+
     this->_contacts[this->amount].setFlagNotNuLL();
     this->amount++;
     std::cout << YEL "Contact added" RESET << std::endl;
     std::cout << YEL "Enter commant (ADD, SEARCH, EXIT) "RESET <<std::endl;
-
 }
 
 void PhoneBook::displayHeader()
@@ -88,7 +96,7 @@ void PhoneBook::displayCurrentContacts()
         {
             try
             {
-                if (tmp.size() > 1)
+                if (tmp.size() > 1 || !isprint(tmp[0]))
                 {
                     throw(tmp);
                 }

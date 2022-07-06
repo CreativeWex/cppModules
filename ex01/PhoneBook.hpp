@@ -21,6 +21,4 @@ class PhoneBook
         Contact _contacts[8];
         /*===================[METHODS]===================*/
         void printToFormat(std::string);
-
-        
 };
