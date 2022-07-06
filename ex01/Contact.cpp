@@ -19,7 +19,7 @@ void Contact::display(int index)
     std::cout << "Nickname: " << _nickname << "\n";
     std::cout << "Darkest Secret: " << _darkestSecret << "\n";
     std::cout << "Favorite meal: " << _favoriteMeal << "\n";
-    std::cout << "Other information: " << _otherInfo << "\n";
+    std::cout << "Other information: " << _phoneNumber << "\n";
     std::cout << "=====================\n";
 }
 
@@ -54,9 +54,9 @@ std::string Contact::getFavoriteMeal()
     return _favoriteMeal;
 }
 
-std::string Contact::getOtherInfo()
+std::string Contact::getPhoneNumber()
 {
-    return _otherInfo;
+    return _phoneNumber;
 }
 
 /*===================[SETTERS]===================*/
@@ -90,7 +90,7 @@ void Contact::setFavoriteMeal(std::string valueFavoriteMeal)
     _favoriteMeal = valueFavoriteMeal;
 }
 
-void Contact::setOtherInfo(std::string valueOtherInfo)
+void Contact::setPhoneNumber(std::string valueOtherInfo)
 {
-    _otherInfo = valueOtherInfo;
+    _phoneNumber = valueOtherInfo;
 }

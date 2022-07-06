@@ -11,7 +11,7 @@ class Contact
         std::string _nickname;
         std::string _darkestSecret;
         std::string _favoriteMeal;
-        std::string _otherInfo;
+        std::string _phoneNumber;
         bool _flagNotNull;
 
     public:
@@ -26,7 +26,7 @@ class Contact
         std::string getNickname();
         std::string getDarkestSecret();
         std::string getFavoriteMeal();
-        std::string getOtherInfo();
+        std::string getPhoneNumber();
         bool getFlagNotNull();
 
         /*===================[SETTERS]===================*/
@@ -35,7 +35,7 @@ class Contact
         void setNickname(std::string valueNickname);
         void setDarkestSecret(std::string valueDarkestSecret);
         void setFavoriteMeal(std::string valueFavoriteMeal);
-        void setOtherInfo(std::string valueOtherInfo);
+        void setPhoneNumber(std::string valueOtherInfo);
         void setFlagNotNuLL();
 };
 

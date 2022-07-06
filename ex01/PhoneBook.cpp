@@ -12,6 +12,55 @@ PhoneBook::~PhoneBook()
 
 /*===================[METHODS]===================*/
 
+bool PhoneBook::validateField(std::string str)
+{
+    if (str.length() < 2)
+    {
+        std::cerr << RED "Wrong len" RESET << "\n";
+            return true;
+    }
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (!isprint(str[i]))
+        {
+            std::cerr << RED "Wrong arg " RESET << "\n";
+            return true;
+        }
+    }
+    return false;
+}
+
+bool PhoneBook::validateName(std::string str)
+{
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (isdigit(str[i]))
+        {
+            std::cerr << RED "Found number in field " RESET << "\n";
+            return true;
+        }
+    }
+    return false;
+}
+
+bool PhoneBook::validatePhoneNumber(std::string str)
+{
+    if (str.length() != 11)
+    {
+        std::cerr << RED "Wrong phone number len" RESET << "\n";
+            return true;
+    }
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (!isdigit(str[i]))
+        {
+            std::cerr << RED "Found wrong symbol in phone number " RESET << "\n";
+            return true;
+        }
+    }
+    return false;
+}
+
 void PhoneBook::addNewContact()
 {
     std::string tmp;
@@ -25,23 +74,40 @@ void PhoneBook::addNewContact()
 
     std::cout << "Name: ";
     std::getline(std::cin, tmp);
+    if (this->validateField(tmp) || this->validateName(tmp))
+        return;
+
     this->_contacts[this->amount].setName(tmp);
     std::cout << "Surname: ";
     std::getline(std::cin, tmp);
+    if (this->validateField(tmp) || this->validateName(tmp))
+        return;
+
     this->_contacts[this->amount].setSurname(tmp);
     std::cout << "Nickname: ";
     std::getline(std::cin, tmp);
+    if (this->validateField(tmp))
+        return;
+
     this->_contacts[this->amount].setNickname(tmp);
     std::cout << "The darkest secret: ";
     std::getline(std::cin, tmp);
+    if (this->validateField(tmp))
+        return;
+
     this->_contacts[this->amount].setDarkestSecret(tmp);
     std::cout << "Favorite Meal: ";
     std::getline(std::cin, tmp);
-    this->_contacts[this->amount].setFavoriteMeal(tmp);
-    std::cout << "Other Information: ";
-    std::getline(std::cin, tmp);
-    this->_contacts[this->amount].setOtherInfo(tmp);
+    if (this->validateField(tmp))
+        return;
 
+    this->_contacts[this->amount].setFavoriteMeal(tmp);
+    std::cout << "Phone Number: ";
+    std::getline(std::cin, tmp);
+    if (this->validateField(tmp) || this->validatePhoneNumber(tmp))
+        return;
+
+    this->_contacts[this->amount].setPhoneNumber(tmp);
     this->_contacts[this->amount].setFlagNotNuLL();
     this->amount++;
     std::cout << YEL "Contact added" RESET << std::endl;
@@ -96,7 +162,7 @@ void PhoneBook::displayCurrentContacts()
         {
             try
             {
-                if (tmp.size() > 1 || !isprint(tmp[0]))
+                if (tmp.size() > 1 || !isprint(tmp[0]) || !(isdigit(tmp[0])))
                 {
                     throw(tmp);
                 }
@@ -109,7 +175,7 @@ void PhoneBook::displayCurrentContacts()
             }
             catch(std::string str)
             {
-                std::cerr << YEL "Wrong arg: " RESET << str << "\n";
+                std::cerr << RED "Wrong arg: " RESET << str << "\n";
             }
         }
     }

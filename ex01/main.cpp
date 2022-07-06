@@ -11,7 +11,7 @@ int main()
     {
         std::cout << YEL "_>" RESET;
         std::getline(std::cin, input);
-        if (input == "ADD") //TODO: валидация
+        if (input == "ADD")
         {
             listContacts.addNewContact();
         }

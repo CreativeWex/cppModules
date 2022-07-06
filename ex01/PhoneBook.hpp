@@ -20,5 +20,11 @@ class PhoneBook
         int amount;
         Contact _contacts[8];
         /*===================[METHODS]===================*/
-        void printToFormat(std::string);
+        void printToFormat(std::string s);
+        bool validateField(std::string str);
+        bool validateName(std::string str);
+        bool validatePhoneNumber(std::string str);
+
 };
+
+//TODO: номер телефона
