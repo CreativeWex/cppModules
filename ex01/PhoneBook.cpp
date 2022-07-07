@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnidorin <marvin@42.fr>                     +#+  +:+       +#+       */
+/*                                                +#+#+#+#+#+    +#+          */
+/*   Created: 2022/07/07 by jnidorin                   #+#    #+#             */
+/*   Updated: 2022/07/07 by jnidorin                  ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
@@ -111,7 +123,7 @@ void PhoneBook::addNewContact()
     this->_contacts[this->amount].setFlagNotNuLL();
     this->amount++;
     std::cout << YEL "Contact added" RESET << std::endl;
-    std::cout << YEL "Enter commant (ADD, SEARCH, EXIT) "RESET <<std::endl;
+    std::cout << YEL "Enter commant (ADD, SEARCH, EXIT)" RESET <<std::endl;
 }
 
 void PhoneBook::displayHeader()
@@ -155,7 +167,7 @@ void PhoneBook::displayCurrentContacts()
         std::getline(std::cin, tmp);
         if (tmp == "BACK")
         {
-            std::cout << YEL "Enter command (ADD, SEARCH, EXIT) "RESET <<std::endl;
+            std::cout << YEL "Enter command (ADD, SEARCH, EXIT)" RESET <<std::endl;
             break;
         }
         else

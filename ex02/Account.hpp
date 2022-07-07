@@ -1,11 +1,14 @@
-// ************************************************************************** //
-//                                                                            //
-//                Account.hpp for GlobalBanksters United                //
-//                Created on  : Thu Nov 20 19:43:15 1989                      //
-//                Last update : Wed Jan 04 14:54:06 1992                      //
-//                Made by : Brad "Buddy" McLane <bm@gbu.com>                  //
-//                                                                            //
-// ************************************************************************** //
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnidorin <marvin@42.fr>                     +#+  +:+       +#+       */
+/*                                                +#+#+#+#+#+    +#+          */
+/*   Created: 2022/07/07 by jnidorin                   #+#    #+#             */
+/*   Updated: 2022/07/07 by jnidorin                  ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 
 #pragma once
@@ -23,11 +26,11 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void ); //TODO: геттеры
+	static int	getNbAccounts( void );
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
-	static void	displayAccountsInfos( void ); //TODO: 
+	static void	displayAccountsInfos( void );
 
 	Account( int initial_deposit );
 	~Account( void );
