@@ -1,6 +1,6 @@
 .PHONY	:	all clean fclean re
 
-NAME			= MyAwesomePhoneBook
+NAME			= Zombie
 
 SRCS			= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS			= $(SRCS:.cpp=.o)

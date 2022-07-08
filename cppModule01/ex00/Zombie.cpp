@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie()
+Zombie::Zombie(std::string name)
 {
-
+    _name = name;
 }
 
 Zombie::~Zombie()
@@ -10,21 +10,10 @@ Zombie::~Zombie()
     std::cout << _name << ": Memory has been cleaned\n";
 }
 
-void Zombie::announce()
+void Zombie::announce() const
 {
     std::cout << _name << ": BraiiiiiiinnnzzzZ...\n";
 }
-
-Zombie* Zombie::newZombie(std::string name)
-{
-    // Выделение памяти под объект в куче
-}
-
-void Zombie::randomChump(std::string name)
-{
-
-}
-
  
 //  - Куча медленнее стека выделяет и освобождает ресурсы, автоматически не очищается 
 // подвержена фрагментации.
