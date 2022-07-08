@@ -1,8 +1,8 @@
 .PHONY	:	all clean fclean re
 
-NAME			= BraiiiiiiinnnzzzZ
+NAME			= MoarBrainz
 
-SRCS			= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS			= main.cpp Zombie.cpp zombieHorde.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
