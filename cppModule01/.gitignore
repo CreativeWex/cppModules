@@ -10,5 +10,8 @@ ex02/HITHISISBRAIN
 ex02/*.o
 ex02/HITHISISBRAIN
 
+ex03/*.o
+ex03/SedIsForLosers
+
 ex04/*.o
-ex04/SedIsForLosers
+ex04/UnnecessaryViolence

@@ -38,5 +38,3 @@ class PhoneBook
         bool validatePhoneNumber(std::string str);
 
 };
-
-//TODO: проверить на 98 стандарт

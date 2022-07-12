@@ -126,5 +126,3 @@ int Account::getNbWithdrawals(void)
 {
 	return (Account::_totalNbWithdrawals);
 }
-
-//TODO:
