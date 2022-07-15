@@ -4,15 +4,18 @@ int main(int argc, char **argv)
 {
     if (argc != 4)
     {
-        std::cerr << RED "Wrong args number\n";
+        std::cerr << RED "Wrong args number\nUsage: <program> <file name> <search> <replace>\n";
         return 1;
     }
-
-    std::cout << argv[1] << "\n";
-    std::cout << argv[2] << "\n";
-    std::cout << argv[3] << "\n";
-
-    Sed object = new Sed(
+    
+    std::string buf;
+    if (Sed::validateArgs(argv[2], argv[3]) || Sed::validateFile(argv[1]))
+    {
+        return 1;
+    }
+    Sed ob = Sed(argv[1], argv[2], argv[3]);
+    ob.readFile();
+    
 
     return 0;
 }

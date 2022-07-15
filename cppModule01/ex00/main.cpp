@@ -17,9 +17,7 @@ int main()
     Zombie *lupa = new Zombie("Lupa");
     lupa->announce();
     delete pupa;
-    pupa->announce();
     delete lupa;
-    lupa->announce();
 
     std::cout<<"\n";
 
@@ -27,4 +25,3 @@ int main()
 
     return 0;
 }
-//TODO: спросить про обращение к методам через удаленный объект

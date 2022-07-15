@@ -9,9 +9,87 @@ Sed::Sed(std::string filename, std::string first_str, std::string second_str)
 
 Sed::~Sed()
 {
-    delete this;
+
 }
 /*===================[METHODS]===================*/
+
+bool Sed::validateArgs(std::string str1, std::string str2)
+{
+    if (str1 ==  "" || str2 == "") // порверка на пустоту строк
+    {
+        std::cerr << RED "Line is empty!\n" RESET;
+        return (true);
+    }
+
+    return false;
+}
+
+bool Sed::validateFile(std::string filename)
+{
+    std::ifstream input;
+
+    input.open(filename);
+    if (!input.is_open())
+    {
+        std::cerr << RED "Can't open file " << filename << "\n";
+        input.close();
+        return true;
+    }
+    if ((input.peek()) == EOF)
+    {
+        std::cerr << RED "File is empty!\n" RESET;
+        input.close();
+        return true;
+    }
+    input.close();
+    return false;
+}
+
+void Sed::readFile()
+{
+    std::ifstream input;
+    std::string tmp;
+
+    try
+    {
+        input.open(_filename);
+        while (!input.eof())
+        {
+            if (std::getline(input, tmp))
+            {
+                _buf.append(tmp);
+                _buf.append("\n");
+            }
+            else
+            {
+                _buf.append("\n");
+            }
+        }
+        _buf.erase(_buf.size() - 1);
+        input.close();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
+void Sed::replace()
+{
+    int i = 0;
+
+    while(i < _buf.length())
+    {
+        i = _buf.find(_first_str, i); // первое вхождение
+        if (i == std::string::npos) // если не нашли никакого вхождения то выходим
+        {
+            break;
+        }
+        _buf.erase(i, strlen(_first_str)); // чистка первой подстроки в буфере
+        buf.insert(i,argv[3]); // заменяется на вторую строку
+        i += strlen(argv[3]);//сдвигается четчик строки
+    }
+}
 
 /*===================[GETTERS]===================*/
 std::string Sed::getFilename()
