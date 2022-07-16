@@ -15,7 +15,8 @@ int main(int argc, char **argv)
     }
     Sed ob = Sed(argv[1], argv[2], argv[3]);
     ob.readFile();
-    
+    ob.replace();
+    ob.writeToFile();
 
     return 0;
 }

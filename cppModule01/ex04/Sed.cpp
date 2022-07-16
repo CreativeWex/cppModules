@@ -85,10 +85,21 @@ void Sed::replace()
         {
             break;
         }
-        _buf.erase(i, strlen(_first_str)); // чистка первой подстроки в буфере
-        buf.insert(i,argv[3]); // заменяется на вторую строку
-        i += strlen(argv[3]);//сдвигается четчик строки
+        _buf.erase(i, _first_str.length()); // чистка первой подстроки в буфере
+        _buf.insert(i,_second_str); // заменяется на вторую строку
+        i += _second_str.length();//сдвигается cчетчик строки
     }
+    std::cout << _buf << "\n";
+}
+
+void Sed::writeToFile()
+{
+    std::ofstream output;
+    if (!(_filename.find(".", 0) == std::string::npos)) // если нашли точку то стираем
+			_filename.erase(_filename.find(".", 0));
+    _filename.append(".replace");
+    output.open(_filename);
+    output << _buf;
 }
 
 /*===================[GETTERS]===================*/
@@ -122,3 +133,4 @@ void Sed::setSecondStr(std::string valueSecondStr)
 }
 
 
+//TODO: проверить

@@ -18,3 +18,8 @@ ex04/SedIsForLosers
 ex04/*.o
 ex03/UnnecessaryViolence
 
+ex05/*.o
+ex05/Harl2.0
+
+ex06/*.o
+ex06/harlFilter

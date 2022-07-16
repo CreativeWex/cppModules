@@ -21,6 +21,7 @@ class Sed
     static bool validateFile(std::string filename);
     void readFile();
     void replace();
+    void writeToFile();
 
     /*===================[GETTERS]===================*/
         std::string getFilename();
