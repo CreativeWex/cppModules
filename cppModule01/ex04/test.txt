@@ -9,8 +9,16 @@ universe
     .
 
     2
+0
+0
+0
+0
+0
 
-end of file
+
+000    0   0  0 
+0
+end 0f file
 
 
 

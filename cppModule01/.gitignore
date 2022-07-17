@@ -13,10 +13,11 @@ ex02/*.o
 ex02/HITHISISBRAIN
 
 ex03/*.o
-ex04/SedIsForLosers
+ex03/UnnecessaryViolence
 
 ex04/*.o
-ex03/UnnecessaryViolence
+ex04/SedIsForLosers
+ex04/test.replace
 
 ex05/*.o
 ex05/Harl2.0

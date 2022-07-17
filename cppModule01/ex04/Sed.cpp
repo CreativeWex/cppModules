@@ -76,7 +76,7 @@ void Sed::readFile()
 
 void Sed::replace()
 {
-    int i = 0;
+    size_t i = 0;
 
     while(i < _buf.length())
     {
@@ -89,7 +89,6 @@ void Sed::replace()
         _buf.insert(i,_second_str); // заменяется на вторую строку
         i += _second_str.length();//сдвигается cчетчик строки
     }
-    std::cout << _buf << "\n";
 }
 
 void Sed::writeToFile()
